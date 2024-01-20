@@ -1,8 +1,8 @@
 # JavaConsole1
 Java console application (Calculator)
 
-[!IMPORTANT]
-Exercise from Mastering Java 100+ exercises (Ruhan Conceiçao)
+> [!IMPORTANT]
+> Exercise from Mastering Java 100+ exercises (Ruhan Conceiçao)
 
 ## Exercise1
 
