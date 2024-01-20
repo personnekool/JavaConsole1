@@ -10,7 +10,13 @@ Write a program that prompts the user for two numbers and display the addition, 
 
 ### The original exercise solution does not include:Gradle + testing + Exceptions handling.
 
-Implementation of the Calculator class with input from console. To Run the program:
+Implementation of the Calculator class with input from console. 
+
+#### Build the application
+1. Open the project in IntellijIdea
+2. Execute the tasks: Ctrl + Ctrl + gradle clean build test javadoc
+
+To Run the program:
 1. From IntelliJIdea: 
 
 - Ctrl + Ctrl + gradle run or Ctrl + Ctrl +./gradlew run
