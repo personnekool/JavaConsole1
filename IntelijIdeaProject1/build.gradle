@@ -1,0 +1,106 @@
+plugins {
+    id 'application'
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0.0'
+mainClassName = 'org.example.Main'
+
+jar{
+    manifest {
+        attributes 'Main-Class':mainClassName
+    }
+    archiveBaseName.set('Calculadora')
+}
+
+repositories {
+    mavenCentral()
+}
+
+// Gradle Tutorial Exercises
+/** 1) Define the task hello
+ * List the task: ./gradlew tasks (IntelliJIdea: Ctrl + Ctr + grade tasks)
+ * How to run it: ./gradlew hello (IntelliJIdea: Ctrl + Ctrl + gradle hello)
+ */
+tasks.register('hello'){
+    description = 'Print Hola mundo in console'
+    group = 'Personal Tasks'
+    doLast{
+        def msg = "Hola mundo"
+        println msg
+    }
+}
+/**
+ * 2) Use task dependencies
+ * How to run it. ./gradlew task2 (IntellijIdea: Ctrl + Ctrl + gradle task2)
+ */
+tasks.register('task1'){
+    description = "Define task1 and use task dependency"
+    group = "Personal Tasks"
+    doLast {
+        def name = "Task1"
+        println name
+    }
+}
+tasks.register('task2'){
+    description = "Define task2 and use task dependency"
+    group = "Personal Tasks"
+    dependsOn([tasks.task1,tasks.hello])
+    doLast {
+        def name = "Task2"
+        println name
+    }
+}
+
+/**
+ * 3) Create a task Class by extending DefaultTask -No Constructor-(Groovy semantic)
+ */
+abstract class PersonalTask extends DefaultTask{
+    @TaskAction
+    void SayHello(){
+        println "Hello World !!"
+    }
+}
+
+tasks.register('Hello', PersonalTask){
+    group = "Personal Tasks"
+    description = "Use Class to define a task"
+}
+
+/**
+ * 4) Create a task class (with constructor) by Extending DefaultTask (Groovy Semantic)
+ *
+ */
+abstract class PersonalTask1 extends DefaultTask{
+
+    @TaskAction
+    void SayHello1(){
+        println "Hello world 1"
+    }
+}
+
+tasks.register('Hello1', PersonalTask1){
+    group="Personal Tasks"
+    def name="Hola 1"
+    doLast {
+        println "hola1"
+    }
+}
+
+run{
+    standardInput = System.in
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    // https://mvnrepository.com/artifact/jakarta.inject/jakarta.inject-api
+    implementation group: 'jakarta.inject', name: 'jakarta.inject-api', version: '2.0.1'
+    // https://mvnrepository.com/artifact/com.github.stefanbirkner/system-lambda
+    testImplementation 'com.github.stefanbirkner:system-lambda:1.2.1'
+}
+
+test {
+    useJUnitPlatform()
+}
