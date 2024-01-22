@@ -16,7 +16,7 @@ Implementation of the Calculator class with input from console.
 1. Open the project in IntellijIdea
 2. Execute the tasks: Ctrl + Ctrl + gradle clean build test javadoc
 
-To Run the program:
+## To Run the program:
 1. From IntelliJIdea: 
 
 - Ctrl + Ctrl + gradle run or Ctrl + Ctrl +./gradlew run
@@ -31,3 +31,6 @@ To see test result, go to build/reports/tests/test folder and open the index.htm
 To generate the documentation: Ctrl + Ctrl + gradle javadoc.
 
 Class documentation can be found in build/docs/javadoc and open the index.html file.
+
+> [!NOTE]
+> Exercises 2 through 15 can be solve using the same methodology (Gradle + Testing + Exceptions + Docs).
